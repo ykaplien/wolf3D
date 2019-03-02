@@ -1,0 +1,3 @@
+hit ray_hit
+deltadistx distance_x
+drawstart st_line_draw
