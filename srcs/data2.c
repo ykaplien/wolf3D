@@ -90,15 +90,10 @@ void	print_map(t_wolf *wolf)
 	}	
 }
 
-void	init_mlx(t_wolf *wolf)
-{
-	wolf->bpp = 32;
-	wolf->size_line = WIN_X;
-	wolf->endian = 0;
-	wolf->mlx_ptr = mlx_init();
-	wolf->win_ptr = mlx_new_window(wolf->mlx_ptr, WIN_X, WIN_Y, "Wolf3D");
-	wolf->img_ptr = mlx_new_image(wolf->mlx_ptr, WIN_X, WIN_Y);
-	wolf->image = mlx_get_data_addr(wolf->img_ptr, &(wolf->bpp), 
-		&(wolf->size_line), &(wolf->endian));
-	init_vars(wolf);
-}
+// void	init_mlx(t_wolf *wolf)
+// {
+// 	// wolf->bpp = 32;
+// 	// wolf->size_line = WIN_X;
+// 	// wolf->endian = 0;
+// 	init_vars(wolf);
+// }

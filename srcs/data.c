@@ -61,7 +61,6 @@ void	data_valid(t_wolf *wolf, char *src)
 	check_walls(wolf, src);
 	check_spawn(src);
 	data_fill(wolf, src);
-	
 }
 
 void	check_symbols(char *src)

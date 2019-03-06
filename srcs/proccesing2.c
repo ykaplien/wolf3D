@@ -19,11 +19,11 @@ void	auxiliary(t_wolf *wolf, int pos)
 	wolf->image[pos + 2] = (wolf->color.col >> 16);
 }
 
-int		pix_calc(t_wolf *wolf)
+int		pix_calc(int x, int y)
 {
 	int		res;
 
 	res = 0;
-	res = (wolf->dis_x * 4) + ((WIN_X * 4) * wolf->dis_y);
+	res = (x * 4) + ((WIN_X * 4) * y);
 	return (res);
 }

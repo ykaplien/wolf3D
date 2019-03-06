@@ -12,9 +12,12 @@
 
 #include "../includes/wolf3d.h"
 
-int		event_handle(t_wolf *wolf, int key)
+int		event_handle(int key, t_wolf *wolf)
 {
-
+	printf("POS X%f\n", wolf->pos_x);
+	printf("POS Y%f\n", wolf->pos_y);
+	printf("DIR X%f\n", wolf->dir_x);
+	printf("DIR Y%f\n", wolf->dir_y);
 	if (key == 53)
 		esc(wolf);
 	else if (key == 123)
@@ -25,7 +28,7 @@ int		event_handle(t_wolf *wolf, int key)
 		move_backward(wolf);
 	else if (key == 126)
 		move_forward(wolf);
-	draw(wolf);
+	re_draw(wolf);
 	return (0);
 }
 

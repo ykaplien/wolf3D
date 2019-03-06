@@ -12,8 +12,8 @@
 
 #ifndef WOLF3D_H
 # define WOLF3D_H
-# define WIN_X 800
-# define WIN_Y 800
+# define WIN_X 1200
+# define WIN_Y 1080
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <stdlib.h>
@@ -108,18 +108,19 @@ int				esc(t_wolf *wolf);
 void			find_pos(t_wolf *wolf);
 void			move_forward(t_wolf *wolf);
 void			move_backward(t_wolf *wolf);
-void			look_left(t_wolf *wolf);
-void			look_right(t_wolf *wolf);
+void			look_left(t_wolf *wolfv);
+void			look_right(t_wolf *wolfv);
 void			redraw(t_wolf *wolf);
-void			var_calc(t_wolf *wolf);
+void			var_calc(t_wolf *wolf, int x);
 void			var_calc_additional(t_wolf *wolf);
 void			dda(t_wolf *wolf);
 void			line_draw_calc(t_wolf * wolf);
 void			draw(t_wolf *wolf);
 void			hide(t_wolf *wolf);
-void			line_calculating(t_wolf *wolf);
+void			line_calculating(t_wolf *wolf, int x);
 void			auxiliary(t_wolf *wolf, int pos);
-int				pix_calc(t_wolf *wolf);
-int				event_handle(t_wolf *wolf, int key);
+int				pix_calc(int x, int y);
+int				event_handle(int key, t_wolf *wolf);
+void			re_draw(t_wolf *wolf);
 
 #endif
