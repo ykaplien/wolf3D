@@ -30,7 +30,6 @@ void	data_work(t_wolf *wolf, char *src)
 		tmp_map = ft_strjoinfree(tmp_map, line, 3);
 		tmp_map = ft_strjoinfree(tmp_map, "\n", 1);
 		wolf->max_y++;
-		// printf("%s\n", tmp_map);
 	}
 	data_valid(wolf, tmp_map);
 }

@@ -69,7 +69,6 @@ void	init_textures(t_wolf *wolf)
 int		esc(t_wolf *wolf)
 {
 	mlx_destroy_window(wolf->mlx_ptr, wolf->win_ptr);
-	free(wolf);
 	exit(0);
 	return (0);
 }

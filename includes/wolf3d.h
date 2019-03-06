@@ -12,13 +12,15 @@
 
 #ifndef WOLF3D_H
 # define WOLF3D_H
-# define WIN_X 1000
+# define WIN_X 800
 # define WIN_Y 800
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <math.h>
+
+#include <stdio.h>
 
 typedef struct			s_walls
 {
@@ -29,13 +31,23 @@ typedef struct			s_walls
 	int					endl;
 }						t_walls;
 
+typedef struct			s_rgb
+{
+	int					red;
+	int					green;
+	int					blue;
+	int					col;
+}						t_rgb;
+
 typedef struct	s_wolf
 {
+	int			buff;					// tmp
 	int			dis_x;					// DRAW -> x planes of display
+	int			dis_y;					// DRAW -> x planes of display
 	int			max_x;					// DATA -> 
 	int			max_y;					// DATA -> 
 	int			**map;					// MAP -> 
-	int			*image;					// MLX -> 
+	char		*image;					// MLX -> 
 	int			bpp;					// MLX -> 
 	int			size_line;				// MLX -> 
 	int			endian;					// MLX -> 
@@ -59,7 +71,10 @@ typedef struct	s_wolf
 	double		side_distance_x;		// PLAYER -> length of ray from current position to next x or y-side
 	double		side_distance_y;		// PLAYER -> length of ray from current position to next x or y-side
 	double		camera_x;				// PLAYER -> x-coordinate in camera space
+	double		camera_y;				// PLAYER -> x-coordinate in camera space
 	double		perp_wall_dist;			// DRAW -> distance of perpendicular ray
+	double		wall_x;
+	double		step;
 	int			line_h;
 	int			st_line_draw;
 	int			sp_line_draw;
@@ -69,7 +84,10 @@ typedef struct	s_wolf
 	int			side;
 	int			map_x;					// PLAYER -> which box of the map we're in
 	int			map_y;					// PLAYER -> which box of the map we're in
+	int			text_x;
+	int			text_y;
 	t_walls		text[6];
+	t_rgb		color;
 }				t_wolf;
 
 void			ft_usage(void);
@@ -97,4 +115,11 @@ void			var_calc(t_wolf *wolf);
 void			var_calc_additional(t_wolf *wolf);
 void			dda(t_wolf *wolf);
 void			line_draw_calc(t_wolf * wolf);
+void			draw(t_wolf *wolf);
+void			hide(t_wolf *wolf);
+void			line_calculating(t_wolf *wolf);
+void			auxiliary(t_wolf *wolf, int pos);
+int				pix_calc(t_wolf *wolf);
+int				event_handle(t_wolf *wolf, int key);
+
 #endif

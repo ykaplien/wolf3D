@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   proccesing2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykaplien <ykaplien@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/22 16:53:51 by ykaplien          #+#    #+#             */
-/*   Updated: 2019/02/22 16:53:52 by ykaplien         ###   ########.fr       */
+/*   Created: 2019/03/06 15:33:46 by ykaplien          #+#    #+#             */
+/*   Updated: 2019/03/06 15:33:46 by ykaplien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf3d.h"
 
-int		main(int argc, char **argv)
+void	auxiliary(t_wolf *wolf, int pos)
 {
-	t_wolf		*wolf;
+	wolf->image[pos] = wolf->color.col & 0x0000ff;
+	wolf->image[pos + 1] = (wolf->color.col >> 8) & 0xff;
+	wolf->image[pos + 2] = (wolf->color.col >> 16);
+}
 
-	if (argc == 2)
-	{
-		wolf = (t_wolf*)ft_memalloc(sizeof(t_wolf));
-		data_work(wolf, argv[1]);
-		init_mlx(wolf);
-		// print_map(wolf);
-		// event_handle(wolf, 124);
-		// event_handle(wolf, 126);
-		// mlx_hook(wolf->win_ptr, 17, 1L << 17, esc, wolf);
-		mlx_hook(wolf->win_ptr, 2, 5, event_handle, wolf);
-		mlx_loop(wolf->mlx_ptr);
-	}
-	else
-		ft_usage();
-	return (0);
+int		pix_calc(t_wolf *wolf)
+{
+	int		res;
+
+	res = 0;
+	res = (wolf->dis_x * 4) + ((WIN_X * 4) * wolf->dis_y);
+	return (res);
 }

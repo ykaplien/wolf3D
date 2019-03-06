@@ -98,7 +98,7 @@ void	init_mlx(t_wolf *wolf)
 	wolf->mlx_ptr = mlx_init();
 	wolf->win_ptr = mlx_new_window(wolf->mlx_ptr, WIN_X, WIN_Y, "Wolf3D");
 	wolf->img_ptr = mlx_new_image(wolf->mlx_ptr, WIN_X, WIN_Y);
-	wolf->image = (int *)mlx_get_data_addr(&(wolf->img_ptr), &(wolf->bpp), 
+	wolf->image = mlx_get_data_addr(wolf->img_ptr, &(wolf->bpp), 
 		&(wolf->size_line), &(wolf->endian));
 	init_vars(wolf);
 }

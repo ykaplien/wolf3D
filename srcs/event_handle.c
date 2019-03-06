@@ -14,6 +14,7 @@
 
 int		event_handle(t_wolf *wolf, int key)
 {
+
 	if (key == 53)
 		esc(wolf);
 	else if (key == 123)
@@ -24,6 +25,7 @@ int		event_handle(t_wolf *wolf, int key)
 		move_backward(wolf);
 	else if (key == 126)
 		move_forward(wolf);
+	draw(wolf);
 	return (0);
 }
 

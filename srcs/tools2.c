@@ -61,24 +61,24 @@ void	var_calc_additional(t_wolf *wolf)
 	if (wolf->ray_dir_y < 0)
 	{
 		wolf->step_y = -1;
-		wolf->side_dist_y = (wolf->pos_y - wolf->map_y) * wolf->distance_y;
+		wolf->side_distance_y = (wolf->pos_y - wolf->map_y) * wolf->distance_y;
 
 	}
 	else
 	{
 		wolf->step_y = 1;
-		wolf->side_dist_y = (wolf->map_y + 1.0 - wolf->pos_y) * wolf->distance_y;
+		wolf->side_distance_y = (wolf->map_y + 1.0 - wolf->pos_y) * wolf->distance_y;
 	}
 	if (wolf->ray_dir_x < 0)
 	{
 		wolf->step_x = -1;
-		wolf->side_dist_x = (wolf->pos_x - wolf->map_x) * wolf->distance_x;
+		wolf->side_distance_x = (wolf->pos_x - wolf->map_x) * wolf->distance_x;
 
 	}
 	else
 	{
 		wolf->step_x = 1;
-		wolf->side_dist_x = (wolf->map_x + 1.0 - wolf->pos_x) * wolf->distance_x;
+		wolf->side_distance_x = (wolf->map_x + 1.0 - wolf->pos_x) * wolf->distance_x;
 	}
 	dda(wolf);
 }

@@ -12,7 +12,7 @@
 
 # CFLAGS		= -Wall -Wextra -Werror
 NAME		= wolf3d
-SRC_NAME 	= main.c tools.c tools2.c data.c data2.c event_handle.c proccesing.c
+SRC_NAME 	= main.c tools.c tools2.c data.c data2.c event_handle.c proccesing.c proccesing2.c
 LIBFT_DIR	= ./libft/
 LIBFT		= ./libft/libft.a
 SRC			=$(addprefix ./srcs/, $(SRC_NAME))
