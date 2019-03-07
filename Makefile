@@ -10,9 +10,9 @@
 #                                                                              #
 #******************************************************************************#
 
-# CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
 NAME		= wolf3d
-SRC_NAME 	= main.c tools.c tools2.c data.c data2.c event_handle.c proccesing.c proccesing2.c
+SRC_NAME 	= main.c tools.c tools2.c tools3.c data.c data2.c event_handle.c proccesing.c proccesing2.c proccesing3.c
 LIBFT_DIR	= ./libft/
 LIBFT		= ./libft/libft.a
 SRC			=$(addprefix ./srcs/, $(SRC_NAME))
@@ -23,7 +23,7 @@ OBJ			= $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	gcc $(CFLAGS) $(OBJ) -I ./includes -I /usr/local/include -I -r $(LIBFT) -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit -o $(NAME) -lm 
+	gcc $(CFLAGS) $(OBJ) -I ./includes -I /usr/local/include -I -r $(LIBFT) -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit -o $(NAME) -lm
 
 %.o:%.c $(LIBFT) ./includes/wolf.h
 	gcc $(CFLAGS) -c $< -o $@ -I ./includes

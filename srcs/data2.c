@@ -70,30 +70,3 @@ void	data_fill(t_wolf *wolf, char *src)
 		y++;
 	}
 }
-
-void	print_map(t_wolf *wolf)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < wolf->max_y)
-	{
-		x = 0;
-		while (x < wolf->max_x)
-		{
-			printf("%d", wolf->map[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}	
-}
-
-// void	init_mlx(t_wolf *wolf)
-// {
-// 	// wolf->bpp = 32;
-// 	// wolf->size_line = WIN_X;
-// 	// wolf->endian = 0;
-// 	init_vars(wolf);
-// }

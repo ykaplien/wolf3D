@@ -12,18 +12,13 @@
 
 #include "../includes/wolf3d.h"
 
-void	auxiliary(t_wolf *wolf, int pos)
+void	auxiliary(t_wolf *wolf, int x, int y)
 {
+	int		pos;
+
+	pos = 0;
+	pos = (x * 4) + ((4 * WIN_X) * y);
 	wolf->image[pos] = wolf->color.col & 0x0000ff;
 	wolf->image[pos + 1] = (wolf->color.col >> 8) & 0xff;
 	wolf->image[pos + 2] = (wolf->color.col >> 16);
-}
-
-int		pix_calc(int x, int y)
-{
-	int		res;
-
-	res = 0;
-	res = (x * 4) + ((WIN_X * 4) * y);
-	return (res);
 }

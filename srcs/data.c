@@ -12,7 +12,6 @@
 
 #include "../includes/wolf3d.h"
 
-
 void	data_work(t_wolf *wolf, char *src)
 {
 	int		fd;
@@ -34,13 +33,15 @@ void	data_work(t_wolf *wolf, char *src)
 	data_valid(wolf, tmp_map);
 }
 
-void	check_x(t_wolf *wolf,int	x)
+void	check_x(t_wolf *wolf, int x)
 {
 	if (wolf->max_x == 0)
 		wolf->max_x = x;
 	else
+	{
 		if (wolf->max_x != x)
 			invalid_map();
+	}
 }
 
 int		count_x(char *src)

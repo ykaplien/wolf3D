@@ -14,10 +14,6 @@
 
 int		event_handle(int key, t_wolf *wolf)
 {
-	printf("POS X%f\n", wolf->pos_x);
-	printf("POS Y%f\n", wolf->pos_y);
-	printf("DIR X%f\n", wolf->dir_x);
-	printf("DIR Y%f\n", wolf->dir_y);
 	if (key == 53)
 		esc(wolf);
 	else if (key == 123)
@@ -28,42 +24,51 @@ int		event_handle(int key, t_wolf *wolf)
 		move_backward(wolf);
 	else if (key == 126)
 		move_forward(wolf);
-	re_draw(wolf);
+	else if (key == 46)
+		sound(wolf);
+	draw(wolf);
 	return (0);
 }
 
-void	move_forward(t_wolf *wolf)
+void	move_forward(t_wolf *a)
 {
-	if (wolf->map[(int)(wolf->pos_x + wolf->dir_x * (wolf->step + 0.2))][(int)(wolf->pos_y)] == 0)
-		wolf->pos_x += wolf->dir_x * wolf->step;
-	if (wolf->map[(int)(wolf->pos_x)][(int)(wolf->pos_y + wolf->dir_y * (wolf->step + 0.2))] == 0)
-		wolf->pos_y += wolf->dir_y * wolf->step;
+	if (a->map[(int)(a->pos_x + a->dir_x * (a->step + 0.2345))]
+		[(int)(a->pos_y)] == 0)
+		a->pos_x += a->dir_x * a->step;
+	if (a->map[(int)(a->pos_x)]
+		[(int)(a->pos_y + a->dir_y * (a->step + 0.2345))] == 0)
+		a->pos_y += a->dir_y * a->step;
 }
 
-void	move_backward(t_wolf *wolf)
+void	move_backward(t_wolf *a)
 {
-	if (wolf->map[(int)(wolf->pos_x - (wolf->dir_x * wolf->step + 0.2))][(int)(wolf->pos_y)] == 0)
-			wolf->pos_x -= wolf->dir_x * wolf->step;
-	if (wolf->map[(int)(wolf->pos_x)][(int)(wolf->pos_y - wolf->dir_y * (wolf->step + 0.2))] == 0)
-		wolf->pos_y -= wolf->dir_y * wolf->step;
+	if (a->map[(int)(a->pos_x - (a->dir_x * a->step + 0.2345))]
+		[(int)(a->pos_y)] == 0)
+		a->pos_x -= a->dir_x * a->step;
+	if (a->map[(int)(a->pos_x)]
+		[(int)(a->pos_y - a->dir_y * (a->step + 0.2345))] == 0)
+		a->pos_y -= a->dir_y * a->step;
 }
 
-void	look_left(t_wolf *wolf)
+void	look_left(t_wolf *a)
 {
-	wolf->old_dir_x = wolf->dir_x;
-	wolf->dir_x = wolf->dir_x * cos(-(wolf->rot_a)) - wolf->dir_y * sin(-(wolf->rot_a));
-	wolf->dir_y = wolf->old_dir_x * sin(-(wolf->rot_a)) + wolf->dir_y * cos(-(wolf->rot_a));
-	wolf->old_plane_x = wolf->plane_x;
-	wolf->plane_x = wolf->plane_x * cos(-(wolf->rot_a)) - wolf->plane_y * sin(-(wolf->rot_a));
-	wolf->plane_y = wolf->old_plane_x * sin(-(wolf->rot_a)) + wolf->plane_y * cos(-(wolf->rot_a));
+	double		tmp;
+
+	a->old_dir_x = a->dir_x;
+	a->dir_x = a->dir_x * cos(-(a->rot_a)) - a->dir_y * sin(-(a->rot_a));
+	a->dir_y = a->old_dir_x * sin(-(a->rot_a)) + a->dir_y * cos(-(a->rot_a));
+	a->old_plane_x = a->plane_x;
+	a->plane_x = a->plane_x * cos(-(a->rot_a)) - a->plane_y * sin(-(a->rot_a));
+	tmp = a->old_plane_x * sin(-(a->rot_a));
+	a->plane_y = tmp + a->plane_y * cos(-(a->rot_a));
 }
 
-void	look_right(t_wolf *wolf)
+void	look_right(t_wolf *a)
 {
-	wolf->old_dir_x = wolf->dir_x;
-	wolf->dir_x = wolf->dir_x * cos(wolf->rot_a) - wolf->dir_y * sin(wolf->rot_a);
-	wolf->dir_y = wolf->old_dir_x * sin(wolf->rot_a) + wolf->dir_y * cos(wolf->rot_a);
-	wolf->old_plane_x = wolf->plane_x;
-	wolf->plane_x = wolf->plane_x * cos(wolf->rot_a) - wolf->plane_y * sin(wolf->rot_a);
-	wolf->plane_y = wolf->old_plane_x * sin(wolf->rot_a) + wolf->plane_y * cos(wolf->rot_a);
+	a->old_dir_x = a->dir_x;
+	a->dir_x = a->dir_x * cos(a->rot_a) - a->dir_y * sin(a->rot_a);
+	a->dir_y = a->old_dir_x * sin(a->rot_a) + a->dir_y * cos(a->rot_a);
+	a->old_plane_x = a->plane_x;
+	a->plane_x = a->plane_x * cos(a->rot_a) - a->plane_y * sin(a->rot_a);
+	a->plane_y = a->old_plane_x * sin(a->rot_a) + a->plane_y * cos(a->rot_a);
 }
