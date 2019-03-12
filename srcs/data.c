@@ -31,6 +31,7 @@ void	data_work(t_wolf *wolf, char *src)
 		wolf->max_y++;
 	}
 	data_valid(wolf, tmp_map);
+	free(tmp_map);
 }
 
 void	check_x(t_wolf *wolf, int x)

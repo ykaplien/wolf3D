@@ -42,11 +42,11 @@ void	move_forward(t_wolf *a)
 
 void	move_backward(t_wolf *a)
 {
-	if (a->map[(int)(a->pos_x - (a->dir_x * a->step + 0.2345))]
+	if (a->map[(int)(a->pos_x - (a->dir_x * a->step + 0.0001))]
 		[(int)(a->pos_y)] == 0)
 		a->pos_x -= a->dir_x * a->step;
 	if (a->map[(int)(a->pos_x)]
-		[(int)(a->pos_y - a->dir_y * (a->step + 0.2345))] == 0)
+		[(int)(a->pos_y - a->dir_y * (a->step + 0.0001))] == 0)
 		a->pos_y -= a->dir_y * a->step;
 }
 

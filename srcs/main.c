@@ -34,8 +34,6 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-LEAKS MAP!!!!!!!!!!!!
-
 void	init_mlx(t_wolf *wolf)
 {
 	wolf->mlx_ptr = mlx_init();

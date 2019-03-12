@@ -73,6 +73,8 @@ typedef struct			s_wolf
 	double				perp_wall_dist;
 	double				wall_x;
 	double				step;
+	double				floor_pos_x;
+	double				floor_pos_y;
 	int					line_h;
 	int					st_line_draw;
 	int					sp_line_draw;
@@ -85,6 +87,8 @@ typedef struct			s_wolf
 	int					text_x;
 	int					text_y;
 	int					sound;
+	int					floor_t_x;
+	int					floor_t_y;
 	t_walls				text[6];
 	t_rgb				color;
 }						t_wolf;
@@ -124,5 +128,10 @@ void					line_calculating_ad(t_wolf *wolf, int variable, int y);
 void					auxiliary(t_wolf *wolf, int x, int y);
 int						event_handle(int key, t_wolf *wolf);
 void					dda_ad(t_wolf *wolf);
+void					floor_ceiling(t_wolf *wolf, int x);
+void					floor_ceiling_calc(t_wolf *wolf, int ver_pix, int x);
+void					put_floor(t_wolf *wolf, int x, int y);
+void					put_ceiling(t_wolf *wolf, int x, int y);
+void					floor_def(t_wolf *wolf);
 
 #endif

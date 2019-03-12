@@ -22,6 +22,7 @@ void	draw(t_wolf *wolf)
 	{
 		var_calc(wolf, x);
 		line_calculating(wolf, x);
+		floor_ceiling(wolf, x);
 		x++;
 	}
 	mlx_put_image_to_window(wolf->mlx_ptr, wolf->win_ptr, wolf->img_ptr, 0, 0);
@@ -78,8 +79,10 @@ void	hide(t_wolf *wolf)
 {
 	wolf->wall_x = wolf->wall_x - floor(wolf->wall_x);
 	wolf->text_x = (int)(wolf->wall_x * (double)(64));
-	if (wolf->side == 0 && wolf->ray_dir_x > 0)
-		wolf->text_x = 64 - wolf->text_x - 1;
-	if (wolf->side == 1 && wolf->ray_dir_y < 0)
-		wolf->text_x = 64 - wolf->text_x - 1;
+	if (wolf->side == 0)
+		if (wolf->ray_dir_x > 0)
+			wolf->text_x = 64 - wolf->text_x - 1;
+	if (wolf->side == 1)
+		if (wolf->ray_dir_y < 0)
+			wolf->text_x = 64 - wolf->text_x - 1;
 }
