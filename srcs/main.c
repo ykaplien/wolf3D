@@ -26,7 +26,6 @@ int		main(int argc, char **argv)
 		mlx_hook(wolf->win_ptr, 17, 1L << 17, esc, wolf);
 		mlx_hook(wolf->win_ptr, 2, 5, event_handle, wolf);
 		sound(wolf);
-		system("leaks wolf");
 		mlx_loop(wolf->mlx_ptr);
 	}
 	else
